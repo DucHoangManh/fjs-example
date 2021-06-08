@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Slide11</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="route-group" id="sw">
+      <button class="sw-ex" value="slide12-1.html">slide12-1</button>
+      <button class="sw-ex" value="slide12-2.html">slide12-2</button>
+      <button class="sw-ex" value="slide12-3.html">slide12-3</button>
+      <button class="sw-ex" value="slide12-4.html">slide12-4</button>
+      <button class="sw-ex" value="slide12-5.html">slide12-5</button>
+    </div>
+    <br />
+    <h2>Tab</h2>
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'tab1')">Tab1</button>
+      <button class="tablinks" onclick="openTab(event, 'tab2')">Tab2</button>
+      <button class="tablinks" onclick="openTab(event, 'tab3')">Tab3</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="tab1" class="tabcontent">
+      <h3>Tab1</h3>
+      <p>You're in tab 1</p>
+      <img src="pearl.jpg" alt="a vermeer art" width="100" />
+    </div>
+
+    <div id="tab2" class="tabcontent">
+      <h3>Tab2</h3>
+      <p>Some content in tab 2</p>
+      <img src="pic1.jpeg" alt="an abstract art" width="100" />
+    </div>
+
+    <div id="tab3" class="tabcontent">
+      <h3>Tab3</h3>
+      <p>Some content in tab 3</p>
+    </div>
+    <br />
+    <h2>Accordion</h2>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+      <p>This is section 1</p>
+    </div>
+
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+      <p>You're just open section 2</p>
+    </div>
+
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+      <p>And this is section 3</p>
+    </div>
+    <br />
+    <h2>Toast</h2>
+    <button onclick="showToast()">Show Toast</button>
+    <div id="toast">
+      <p>Here's the toast</p>
+      <p id="exit-toast">
+        <a>x</a>
+      </p>
+    </div>
+  </body>
+</html>
+<script>
+  let tabcontent = document.getElementsByClassName('tabcontent')
+  let tablinks = document.getElementsByClassName('tablinks')
+  tablinks[0].className += ' active'
+  tabcontent[0].style.display = 'block'
+  function openTab(evt, tabName) {
+    for (let i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = 'none'
+    }
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(' active', '')
+    }
+    document.getElementById(tabName).style.display = 'block'
+    evt.currentTarget.className += ' active'
+  }
+  //accordion
+  const acc = document.getElementsByClassName('accordion')
+
+  for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function () {
+      const panel = this.nextElementSibling
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px'
+      }
+      for (let j = 0; j < acc.length; j++) {
+        if (i !== j) {
+          acc[j].nextElementSibling.style.maxHeight = null
+          acc[j].classList.remove('active')
+        }
+      }
+      if (acc[i].classList.contains('active')) {
+        acc[i].classList.remove('active')
+      } else {
+        acc[i].classList.add('active')
+      }
+    })
+  }
+
+  //toast
+  function showToast() {
+    const bar = document.getElementById('toast')
+    bar.className = 'show'
+    document.getElementById('exit-toast').onclick = () => {
+      bar.className = bar.className.replace('show', '')
+    }
+    setTimeout(function () {
+      bar.className = bar.className.replace('show', '')
+    }, 5000)
+  }
+
+  //Switch exercise
+  const switchButtons = document.getElementsByClassName('sw-ex')
+  for (let btn of switchButtons) {
+    btn.addEventListener('click', (event) => {
+      location.href = event.target.value
+    })
+  }
+</script>

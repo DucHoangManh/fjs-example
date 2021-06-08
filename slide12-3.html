@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Slide11</title>
+    <link rel="stylesheet" href="tmp.css" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="item1"></div>
+      <div class="item2"></div>
+      <div class="item3"></div>
+      <div class="item4"></div>
+      <div class="item5"></div>
+    </div>
+  </body>
+  <script></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .item1 {
+      height: 100px;
+      grid-area: item1;
+      background: skyBlue;
+    }
+    .item2 {
+      height: 100px;
+      grid-area: item2;
+      background: skyBlue;
+    }
+    .item3 {
+      height: 100px;
+      grid-area: item3;
+      background: skyBlue;
+    }
+    .item4 {
+      height: 100px;
+      grid-area: item4;
+      background: skyBlue;
+    }
+    .item5 {
+      height: 500px;
+      grid-area: item5;
+      background: skyBlue;
+      margin-left: 15px;
+    }
+    @media (min-width: 769px) {
+      .container {
+        padding: 30px
+        width: auto;
+        background: lightGreen;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto 1fr auto;
+        grid-gap: 15px;
+        grid-template-areas:
+          'item1 item2 item5'
+          'item3 item4 item5';
+      }
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 15px 15px 15px;
+        width: auto;
+        background: lightGreen;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto 1fr auto;
+        grid-gap: 15px;
+        grid-template-areas:
+          'item1 item2'
+          'item3 item4'
+          'item5 item5';
+      }
+      .item5 {
+      height: 500px;
+      grid-area: item5;
+      background: skyBlue;
+      margin-left: 0px;
+      margin-top: 15px;
+    }
+    }
+  </style>
+</html>

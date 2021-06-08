@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Slide11</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <div class="item-head"></div>
+        <div class="item-head"></div>
+        <div class="item-head"></div>
+      </div>
+      <div class="body">
+        <div class="item-body"></div>
+        <div class="item-body"></div>
+      </div>
+    </div>
+  </body>
+  <script></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .head {
+      padding: 0 15px 0 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+    }
+    @media (min-width: 769px) {
+      .item-head {
+        width: 90px;
+        height: 30px;
+        background: skyBlue;
+      }
+      .item-body {
+        min-width: 300px;
+        height: 150px;
+        background: skyBlue;
+      }
+      .body {
+        display: flex;
+        justify-content: space-around;
+        height: 500px;
+      }
+    }
+    .container {
+      padding: auto;
+      width: auto;
+      background: lightGreen;
+    }
+    @media (max-width: 768px) {
+      .item-head {
+        width: 60px;
+        height: 30px;
+        background: skyBlue;
+      }
+      .item-body {
+        margin: 0 0 15px 0;
+        min-width: 100px;
+        height: 150px;
+        background: skyBlue;
+      }
+      .body {
+        padding: 0 15px 0 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 500px;
+      }
+    }
+  </style>
+</html>
